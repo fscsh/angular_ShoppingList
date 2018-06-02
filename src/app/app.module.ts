@@ -15,12 +15,16 @@ import { FormsModule } from '@angular/forms';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 import { Routes, RouterModule } from '@angular/router';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const addRoutes: Routes = [
     { path: '' , redirectTo: '/recipes' , pathMatch: 'full'} ,
     { path: 'recipes' , component: RecipesComponent, children:[
         {path: '', component: RecipeStartComponent },
+        {path: 'new', component: RecipeEditComponent },
         {path: ':id', component: RecipeDetailComponent },
+        {path: ':id/edit', component: RecipeEditComponent },
+
     ]} ,
     { path: 'shopping-list' , component: ShoppingListComponent },
 ]
@@ -36,7 +40,8 @@ const addRoutes: Routes = [
     ShoppingListComponent,
     ShoppingEditComponent,
     DropdownDirective,
-    RecipeStartComponent
+    RecipeStartComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
